@@ -1,13 +1,13 @@
 OpenCage Data Geocoding Library for .Net 4.5
 =======================
 
-A [.Net](http://www.microsoft.com/net) library that uses [OpenCage Geocoder](http://geocoder.opencagedata.com/)
+A [.NET 4.5](http://www.microsoft.com/net) library that uses [OpenCage Geocoder](http://geocoder.opencagedata.com/)
 geocoder.
 
 ## Dependencies and Requirements
 
-.Net 4.5
-ServiceStack ver 3.9.71 (last version of non-commercial library)
+* .NET 4.5
+* ServiceStack ver 3.9.71 (last version of non-commercial library)
 
 ## Usage (Geocoding)
 
