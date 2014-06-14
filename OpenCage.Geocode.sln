@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCage.Geocode", "OpenCage.Geocode.csproj", "{854A28B1-D7BA-4004-818E-0E5561ED4C0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCage.Geocode", "OpenCage.Geocode\OpenCage.Geocode.csproj", "{854A28B1-D7BA-4004-818E-0E5561ED4C0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocoderDemo", "..\GeocoderDemo\GeocoderDemo.csproj", "{C93C3583-E93F-4CF9-A819-C588FD480DC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocoderDemo", "GeocoderDemo\GeocoderDemo.csproj", "{C93C3583-E93F-4CF9-A819-C588FD480DC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
