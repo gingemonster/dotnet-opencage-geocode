@@ -30,14 +30,14 @@ You will get a strongly typed GeocoderResponse object returned.
 
 There are optional paramaters for language, country, and bounds see http://geocoder.opencagedata.com/api.html for explanations
 
-Putting all of this together, a complete sample would look like this:
+Putting all of this together as a console app, a complete sample would look like this:
 
 
 ```C#
-            var gc = new Geocoder("YOUR_KEY");
-            var result = gc.Geocode("82 Clerkenwell Road, London");
+var gc = new Geocoder("YOUR_KEY");
+var result = gc.Geocode("82 Clerkenwell Road, London");
 
-            result.PrintDump(); // ServiceStack human readable object dump to console
+result.PrintDump(); // ServiceStack human readable object dump to console
 ```
 
 ## Usage (Reverse Geocoding)
@@ -46,10 +46,10 @@ Reverse geocoding is almost identical but you pass in a latitude and longitude p
 
 
 ```C#
-            var gc = new Geocoder("YOUR_KEY");
-            var reserveresult = gc.ReverseGeocode(51.4277844, -0.3336517);
+var gc = new Geocoder("YOUR_KEY");
+var reserveresult = gc.ReverseGeocode(51.4277844, -0.3336517);
             
-            reserveresult.PrintDump(); // ServiceStack human readable object dump to console
+reserveresult.PrintDump(); // ServiceStack human readable object dump to console
 ```
 
 There is an optional paramaters for language see http://geocoder.opencagedata.com/api.html for explanations
