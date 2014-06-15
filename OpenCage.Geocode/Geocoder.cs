@@ -23,16 +23,20 @@
             string country = null,
             Bounds bounds = null)
         {
-            var url = string.Format(Baseurl, query.UrlEncode(), this.key, language);
+            var url = string.Format(Baseurl, query.UrlEncode(), this.key, language.UrlEncode());
 
             if (bounds != null)
             {
-                url += "bounds="
+                url += "&bounds="
                        + new double[]
                              {
                                  bounds.NorthEast.Longitude, bounds.NorthEast.Latitude, bounds.SouthWest.Longitude,
                                  bounds.SouthWest.Latitude
                              }.Join().UrlEncode();
+            }
+            if (!string.IsNullOrEmpty(country))
+            {
+                url += "&country=" + country.UrlEncode();
             }
 
             return this.GetResponse(url);
@@ -40,7 +44,7 @@
 
         public GeocoderResponse ReverseGeocode(double latitude, double longitude, string language = "en")
         {
-            var url = string.Format(Baseurl, new double[] { latitude, longitude }.Join().UrlEncode(), this.key, language);
+            var url = string.Format(Baseurl, new double[] { latitude, longitude }.Join().UrlEncode(), this.key, language.UrlEncode());
             return this.GetResponse(url);
         }
 

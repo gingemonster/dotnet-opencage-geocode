@@ -10,8 +10,8 @@
     {
         public static void Main(string[] args)
         {
-            var gc = new Geocoder("YOUR_KEY");
-            var result = gc.Geocode("82 Clerkenwell Road, London");
+            var gc = new Geocoder("924d139f8c45a512fd0fe1cfc6eb741f");
+            var result = gc.Geocode("newcastle", country: "GBR");
 
             result.PrintDump();
 
