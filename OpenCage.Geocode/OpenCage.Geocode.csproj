@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>OpenCage.Geocode.DotNetStandard</PackageId>
+    <Authors>Brian Norman</Authors>
+    <Company>earthware</Company>
+    <Product>OpenCage.Geocode.DotNetStandard</Product>
+    <Description>A .NET Standard library (works in .Net core, .Net 4.6.1 and Xamarin projects) that provides geocoding and reverse geocoding of locations using the OpenCage Geocoder(http://geocoder.opencagedata.com/)</Description>
+    <Copyright>earthware</Copyright>
+    <RepositoryUrl>https://github.com/gingemonster/dotnet-opencage-geocode</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/gingemonster/dotnet-opencage-geocode</PackageProjectUrl>
+    <PackageTags>geocoding location .net standard</PackageTags>
+    <PackageReleaseNotes>first release after moving to .net standard</PackageReleaseNotes>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
