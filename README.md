@@ -1,4 +1,4 @@
-OpenCage Data Geocoding Library for .Net 4.5
+OpenCage Data Geocoding Library for .Net Standard
 =======================
 
 A [.NET Standard](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/) library (works in .Net core, .Net 4.6.1 and Xamarin projects) that provides geocoding and reverse geocoding of locations using the  [OpenCage Geocoder](http://geocoder.opencagedata.com/)
