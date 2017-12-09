@@ -61,6 +61,9 @@ Further examples of a .Net Core and .Net 4.6.1 console application are available
 ## Error handling
 Any errors that the geocoding service returns will be found in the **RequestStatus** property of the **GeocoderResponse** object. **RequestStatus** contains the standard HTTP error status code as the **Code** property and a more helpful error message in the **Message** property.
 
+## Best practices
+Before starting to use the OpenCage geocoder in your projects we advice you read the [Best Practices document](https://geocoder.opencagedata.com/api#bestpractices) to ensure you get the best results possible.
+
 ## Rate limiting
 Two error codes are used when any rate limiting has come into effect:
 
