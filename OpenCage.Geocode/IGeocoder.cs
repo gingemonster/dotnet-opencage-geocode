@@ -14,7 +14,6 @@
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool prettyPrint = false,
             bool addRequest = false
         );
 
@@ -29,7 +28,6 @@
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool prettyPrint = false,
             bool addRequest = false
             );
     }

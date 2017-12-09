@@ -29,7 +29,6 @@
 			bool noAnnotations = false,
 			bool noDedupe = false,
 			bool noRecord = false,
-			bool prettyPrint = false,
 			bool addRequest = false)
         {
             var url = string.Format(Baseurl, WebUtility.UrlEncode(query), this.key, WebUtility.UrlEncode(language));
@@ -42,12 +41,12 @@
             {
                 url += "&countrycode=" + countrycode;
             }
-			AddCommonOptionalParameters(url,jsonp, limit, minConfidence, noAnnotations, noDedupe, noRecord, prettyPrint, abbrv, addRequest);
+			AddCommonOptionalParameters(ref url, jsonp, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest);
 
             return this.GetResponse(url);
         }
 		
-		private void AddCommonOptionalParameters(string url, bool jsonp, int limit, int minConfidence, bool noAnnotations, bool noDedupe, bool noRecord, bool prettyPrint, bool abbrv, bool addRequest){
+		private void AddCommonOptionalParameters(ref string url, bool jsonp, int limit, int minConfidence, bool noAnnotations, bool noDedupe, bool noRecord, bool abbrv, bool addRequest){
 			if(jsonp){
 				url += "&jsonp=1";
 			}
@@ -66,9 +65,6 @@
 			if(noRecord){
 				url += "&no_record=1";
 			}	
-			if(prettyPrint){
-				url += "&pretty=1";
-			}
 			if(abbrv){
 				url += "&abbrv=1";
 			}
@@ -88,12 +84,11 @@
 			bool noAnnotations = false,
 			bool noDedupe = false,
 			bool noRecord = false,
-			bool prettyPrint = false,
 			bool addRequest = false			
 			)
         {
             var url = string.Format(Baseurl, latitude + "%2C" + longitude, this.key, WebUtility.UrlEncode(language));
-			AddCommonOptionalParameters(url,jsonp, limit, minConfidence, noAnnotations, noDedupe, noRecord, prettyPrint, abbrv, addRequest);
+			AddCommonOptionalParameters(ref url,jsonp, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest);
 			
             return this.GetResponse(url);
         }
@@ -105,6 +100,7 @@
             try
             {
                 result = url.GetJsonFromUrl();
+                return result.FromJson<GeocoderResponse>();
             }
             catch (WebException webex)
             {
@@ -113,33 +109,36 @@
                 // check if error can be returned as a http status
                 if (response != null)
                 {
+
                     var body = webex.GetResponseBody();
                     try
                     {
-                        return body.FromJson<GeocoderResponse>();
+                        var gcr = body.FromJson<GeocoderResponse>();
+                        switch ((int)response.StatusCode)
+                        {
+                            case 400:
+                                gcr.Status.Message = "Invalid request (bad request; a required parameter is missing; invalid coordinates))";
+                                break;
+                            case 402:
+                                gcr.Status.Message = "Valid request but quota exceeded (payment required)";
+                                break;
+                            case 403:
+                                gcr.Status.Message = "Invalid or missing api key (forbidden)";
+                                break;
+                            case 429:
+                                gcr.Status.Message = "Too many requests (too quickly, rate limiting)";
+                                break;
+
+                        }
+                        return gcr;
                     }
                     catch (Exception ex)
                     {
-						var message = "";
-						switch((int)response.StatusCode){
-							case 402: 
-								message = "You have reached the daily free usage limit of 2,500 requests. Please visist https://geocoder.opencagedata.com/pricing for more details";
-								break;
-							case 403:
-								message = "Invalid or banned api key";
-                                break;
-							default:
-								message = ex.Message;
-                                break;
-							
-						}
-                        return new GeocoderResponse() { Status = new RequestStatus() { Code = (int)response.StatusCode, Message = message } };
+                        return new GeocoderResponse() { Status = new RequestStatus() { Code = (int)response.StatusCode, Message = ex.Message } };
                     }
                 }
                 throw;
             }
-
-            return result.FromJson<GeocoderResponse>();
         }
     }
 }

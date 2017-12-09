@@ -2,6 +2,8 @@
 {
     public class Location
     {
+        public Annotations Annotations { get; set; }
+
         public string Formatted { get; set; }
 
         public AddressComponent Components { get; set; }
