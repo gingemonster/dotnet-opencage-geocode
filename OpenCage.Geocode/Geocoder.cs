@@ -2,8 +2,8 @@
 {
     using System;
     using System.Net;
-
     using ServiceStack.Text;
+    using ServiceStack;
 
     public class Geocoder : IGeocoder
     {
@@ -23,20 +23,15 @@
             string country = null,
             Bounds bounds = null)
         {
-            var url = string.Format(Baseurl, query.UrlEncode(), this.key, language.UrlEncode());
+            var url = string.Format(Baseurl, WebUtility.UrlEncode(query), this.key, WebUtility.UrlEncode(language));
 
             if (bounds != null)
             {
-                url += "&bounds="
-                       + new double[]
-                             {
-                                 bounds.NorthEast.Longitude, bounds.NorthEast.Latitude, bounds.SouthWest.Longitude,
-                                 bounds.SouthWest.Latitude
-                             }.Join().UrlEncode();
+                url += $"&bounds={bounds.NorthEast.Longitude}%2C{bounds.NorthEast.Latitude}%2C{bounds.SouthWest.Longitude}%2C{bounds.SouthWest.Latitude}";
             }
             if (!string.IsNullOrEmpty(country))
             {
-                url += "&country=" + country.UrlEncode();
+                url += "&country=" + WebUtility.UrlEncode(country);
             }
 
             return this.GetResponse(url);
@@ -44,7 +39,7 @@
 
         public GeocoderResponse ReverseGeocode(double latitude, double longitude, string language = "en")
         {
-            var url = string.Format(Baseurl, new double[] { latitude, longitude }.Join().UrlEncode(), this.key, language.UrlEncode());
+            var url = string.Format(Baseurl, latitude + "%2C" + longitude, this.key, WebUtility.UrlEncode(language));
             return this.GetResponse(url);
         }
 

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCage.Geocode", "OpenCage.Geocode\OpenCage.Geocode.csproj", "{854A28B1-D7BA-4004-818E-0E5561ED4C0E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeocoderDemo", "GeocoderDemo\GeocoderDemo.csproj", "{C93C3583-E93F-4CF9-A819-C588FD480DC8}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCage.Geocode", "OpenCage.Geocode\OpenCage.Geocode.csproj", "{DE454BFD-5BF9-4570-8B22-B1D1FB26DD8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{854A28B1-D7BA-4004-818E-0E5561ED4C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{854A28B1-D7BA-4004-818E-0E5561ED4C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{854A28B1-D7BA-4004-818E-0E5561ED4C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{854A28B1-D7BA-4004-818E-0E5561ED4C0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C93C3583-E93F-4CF9-A819-C588FD480DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C93C3583-E93F-4CF9-A819-C588FD480DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C93C3583-E93F-4CF9-A819-C588FD480DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C93C3583-E93F-4CF9-A819-C588FD480DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE454BFD-5BF9-4570-8B22-B1D1FB26DD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE454BFD-5BF9-4570-8B22-B1D1FB26DD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE454BFD-5BF9-4570-8B22-B1D1FB26DD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE454BFD-5BF9-4570-8B22-B1D1FB26DD8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A17482A9-1200-4CC7-9812-6AC897151D9A}
 	EndGlobalSection
 EndGlobal
