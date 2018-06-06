@@ -12,10 +12,10 @@
     <RepositoryUrl>https://github.com/gingemonster/dotnet-opencage-geocode</RepositoryUrl>
     <PackageProjectUrl>https://github.com/gingemonster/dotnet-opencage-geocode</PackageProjectUrl>
     <PackageTags>geocoding location .net standard</PackageTags>
-    <PackageReleaseNotes>first release after moving to .net standard</PackageReleaseNotes>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
-    <Version>1.2.0</Version>
+    <PackageReleaseNotes>adding in address components "type" property in the geocoder response object</PackageReleaseNotes>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
+    <FileVersion>1.3.0.0</FileVersion>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
