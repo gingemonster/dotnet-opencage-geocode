@@ -12,10 +12,10 @@
     <RepositoryUrl>https://github.com/gingemonster/dotnet-opencage-geocode</RepositoryUrl>
     <PackageProjectUrl>https://github.com/gingemonster/dotnet-opencage-geocode</PackageProjectUrl>
     <PackageTags>geocoding location .net standard</PackageTags>
-    <PackageReleaseNotes>adding in address components "type" property in the geocoder response object</PackageReleaseNotes>
-    <AssemblyVersion>1.3.0.0</AssemblyVersion>
-    <FileVersion>1.3.0.0</FileVersion>
-    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Added possibility to retrieve any value which is present in components hashset as a new ComponentsDictionary property. This means if new components are added by opencage you can access them without a new version of this library needing to be released each time. Thanks to ivan.shelest for the work</PackageReleaseNotes>
+    <AssemblyVersion>1.4.0.0</AssemblyVersion>
+    <FileVersion>1.4.0.0</FileVersion>
+    <Version>1.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
