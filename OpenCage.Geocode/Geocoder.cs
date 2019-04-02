@@ -3,7 +3,8 @@
 namespace OpenCage.Geocode
 {
     using System;
-    using System.Net;
+	using System.Globalization;
+	using System.Net;
     using ServiceStack;
 
     public class Geocoder : IGeocoder
@@ -180,7 +181,7 @@ namespace OpenCage.Geocode
 
         protected static string ToNonScientificString(double d)
         {
-            var s = d.ToString(DoubleFormat).TrimEnd('0');
+            var s = d.ToString(DoubleFormat, CultureInfo.InvariantCulture).TrimEnd('0');
             return s.Length == 0 ? "0.0" : s;
         }
 
