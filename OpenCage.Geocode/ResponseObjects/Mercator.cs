@@ -1,5 +1,8 @@
-﻿public class Mercator
+﻿namespace OpenCage.Geocode
 {
-    public double X { get; set; }
-    public double Y { get; set; }
+	public class Mercator
+	{
+		public double X { get; set; }
+		public double Y { get; set; }
+	}
 }

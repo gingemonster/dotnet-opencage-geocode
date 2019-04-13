@@ -1,5 +1,8 @@
-﻿public class License
+﻿namespace OpenCage.Geocode
 {
-    public string Name { get; set; }
-    public string Url { get; set; }
+	public class License
+	{
+		public string Name { get; set; }
+		public string Url { get; set; }
+	}
 }

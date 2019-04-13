@@ -1,5 +1,8 @@
-﻿public class DMS
+﻿namespace OpenCage.Geocode
 {
-    public string Lat { get; set; }
-    public string Lng { get; set; }
+	public class DMS
+	{
+		public string Lat { get; set; }
+		public string Lng { get; set; }
+	}
 }
