@@ -10,5 +10,13 @@
 
         [DataMember(Name = "lng")]
         public double Longitude { get; set; }
+
+		public Point() { }
+
+		public Point(double latitude, double longitude)
+		{
+			Latitude = latitude;
+			Longitude = longitude;
+		}
     }
 }
