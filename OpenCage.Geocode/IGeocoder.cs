@@ -13,7 +13,8 @@
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false
+            bool addRequest = false,
+            bool roadInfo = false
         );
 
         GeocoderResponse ReverseGeocode(
@@ -26,7 +27,8 @@
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false
-            );
+            bool addRequest = false,
+            bool roadInfo = false
+        );
     }
 }
