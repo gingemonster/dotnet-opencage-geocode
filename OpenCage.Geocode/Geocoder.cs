@@ -55,7 +55,7 @@ namespace OpenCage.Geocode
             }
             if (roadInfo)
             {
-                url += "&roadInfo=1";
+                url += "&roadinfo=1";
             }
         }
 
