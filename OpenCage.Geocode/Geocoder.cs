@@ -21,7 +21,8 @@ namespace OpenCage.Geocode
         {
             this.key = key;
         }
-        private void AddCommonOptionalParameters(ref string url, int limit, int minConfidence, bool noAnnotations, bool noDedupe, bool noRecord, bool abbrv, bool addRequest)
+
+        private void AddCommonOptionalParameters(ref string url, int limit, int minConfidence, bool noAnnotations, bool noDedupe, bool noRecord, bool abbrv, bool addRequest, bool roadInfo)
         {
 
             if (limit > 0)
@@ -52,6 +53,10 @@ namespace OpenCage.Geocode
             {
                 url += "&add_request=1";
             }
+            if (roadInfo)
+            {
+                url += "&roadinfo=1";
+            }
         }
 
         /// <summary>
@@ -68,6 +73,7 @@ namespace OpenCage.Geocode
         /// <param name="noDedupe">	When set to true results will not be deduplicated.</param>
         /// <param name="noRecord">When set to true the query contents are not logged. Please use if you have concerns about privacy and want us to have no record of your query.</param>
         /// <param name="addRequest">When set to true the various request parameters are added to the response for ease of debugging.</param>
+        /// <param name="roadInfo">When set to true the behaviour of the geocoder is changed to attempt to match the nearest road (as opposed to address).</param>
         /// <returns></returns>
         public GeocoderResponse Geocode(
             string query,
@@ -80,7 +86,8 @@ namespace OpenCage.Geocode
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false)
+            bool addRequest = false,
+            bool roadInfo = false)
         {
             var url = string.Format(Baseurl, WebUtility.UrlEncode(query), this.key, WebUtility.UrlEncode(language));
 
@@ -93,7 +100,7 @@ namespace OpenCage.Geocode
                 url += "&countrycode=" + countrycode;
             }
 
-            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest);
+            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest, roadInfo);
 
             return GetResponse(url);
         }
@@ -112,6 +119,7 @@ namespace OpenCage.Geocode
         /// <param name="noDedupe">	When set to true results will not be deduplicated.</param>
         /// <param name="noRecord">When set to true the query contents are not logged. Please use if you have concerns about privacy and want us to have no record of your query.</param>
         /// <param name="addRequest">When set to true the various request parameters are added to the response for ease of debugging.</param>
+        /// <param name="roadInfo">When set to true the behaviour of the geocoder is changed to attempt to match the nearest road (as opposed to address).</param>
         /// <returns></returns>
         public async Task<GeocoderResponse> GeocodeAsync(
             string query,
@@ -124,7 +132,8 @@ namespace OpenCage.Geocode
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false)
+            bool addRequest = false,
+            bool roadInfo = false)
         {
             var url = string.Format(Baseurl, WebUtility.UrlEncode(query), this.key, WebUtility.UrlEncode(language));
 
@@ -137,7 +146,7 @@ namespace OpenCage.Geocode
                 url += "&countrycode=" + countrycode;
             }
 
-            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest);
+            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest, roadInfo);
 
             return await GetResponseAsync(url);
         }
@@ -155,6 +164,7 @@ namespace OpenCage.Geocode
         /// <param name="noDedupe">	When set to true results will not be deduplicated.</param>
         /// <param name="noRecord">When set to true the query contents are not logged. Please use if you have concerns about privacy and want us to have no record of your query.</param>
         /// <param name="addRequest">When set to true the various request parameters are added to the response for ease of debugging.</param>
+        /// <param name="roadInfo">When set to true the behaviour of the geocoder is changed to attempt to match the nearest road (as opposed to address).</param>
         /// <returns></returns>
         public GeocoderResponse ReverseGeocode(
             double latitude,
@@ -166,10 +176,11 @@ namespace OpenCage.Geocode
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false
+            bool addRequest = false,
+            bool roadInfo = false
             )
         {
-            var url = GetReverseGeocodeUrl(latitude, longitude, language, abbrv, limit, minConfidence, noAnnotations, noDedupe, noRecord, addRequest);
+            var url = GetReverseGeocodeUrl(latitude, longitude, language, abbrv, limit, minConfidence, noAnnotations, noDedupe, noRecord, addRequest, roadInfo);
             return GetResponse(url);
         }
 
@@ -186,6 +197,7 @@ namespace OpenCage.Geocode
         /// <param name="noDedupe">	When set to true results will not be deduplicated.</param>
         /// <param name="noRecord">When set to true the query contents are not logged. Please use if you have concerns about privacy and want us to have no record of your query.</param>
         /// <param name="addRequest">When set to true the various request parameters are added to the response for ease of debugging.</param>
+        /// <param name="roadInfo">When set to true the behaviour of the geocoder is changed to attempt to match the nearest road (as opposed to address).</param>
         /// <returns></returns>
         public async Task<GeocoderResponse> ReverseGeocodeAsync(
             double latitude,
@@ -197,10 +209,11 @@ namespace OpenCage.Geocode
             bool noAnnotations = false,
             bool noDedupe = false,
             bool noRecord = false,
-            bool addRequest = false
+            bool addRequest = false,
+            bool roadInfo = false
         )
         {
-            var url = GetReverseGeocodeUrl(latitude, longitude, language, abbrv, limit, minConfidence, noAnnotations, noDedupe, noRecord, addRequest);
+            var url = GetReverseGeocodeUrl(latitude, longitude, language, abbrv, limit, minConfidence, noAnnotations, noDedupe, noRecord, addRequest, roadInfo);
             return await GetResponseAsync(url);
         }
 
@@ -213,10 +226,11 @@ namespace OpenCage.Geocode
             bool noAnnotations,
             bool noDedupe,
             bool noRecord,
-            bool addRequest)
+            bool addRequest,
+            bool roadInfo)
         {
             var url = GetReverseGeocodeUrl(latitude, longitude, language);
-            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest);
+            AddCommonOptionalParameters(ref url, limit, minConfidence, noAnnotations, noDedupe, noRecord, abbrv, addRequest, roadInfo);
             return url;
         }
 
