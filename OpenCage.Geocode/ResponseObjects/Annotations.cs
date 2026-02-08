@@ -1,4 +1,6 @@
-﻿namespace OpenCage.Geocode
+﻿using OpenCage.Geocode.ResponseObjects;
+
+namespace OpenCage.Geocode
 {
 	public class Annotations
 	{
@@ -13,6 +15,7 @@
 		public string Flag { get; set; }
 		public string Geohash { get; set; }
 		public double Qibla { get; set; }
+		public RoadInfo RoadInfo { get; set; }
 		public Sun Sun { get; set; }
 		public Timezone Timezone { get; set; }
 		public What3words What3words { get; set; }

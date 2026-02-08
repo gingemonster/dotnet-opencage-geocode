@@ -13,9 +13,9 @@
     <PackageProjectUrl>https://github.com/gingemonster/dotnet-opencage-geocode</PackageProjectUrl>
     <PackageTags>geocoding location .net standard</PackageTags>
     <PackageReleaseNotes>Adding in recent community updates and fixes, thanks to all who contributed</PackageReleaseNotes>
-    <AssemblyVersion>1.6.0.0</AssemblyVersion>
-    <FileVersion>1.6.0.0</FileVersion>
-    <Version>1.6.0</Version>
+    <AssemblyVersion>1.6.1.0</AssemblyVersion>
+    <FileVersion>1.6.1.0</FileVersion>
+    <Version>1.6.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
